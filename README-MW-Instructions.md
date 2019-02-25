@@ -1,0 +1,1 @@
+Run the Mystery Word game by typing Python3 mystery_word.py on the command line.
