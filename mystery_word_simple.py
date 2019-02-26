@@ -20,7 +20,9 @@ def get_letter_input():
     while not letter_input(user_input):
         print("Not a letter, please enter a letter.\n")
         user_input = input("Type a letter to make a guess: \n").casefold()
-    
+    """
+    User must enter letter a-z.  Prompts user to enter letter if character other than letter entered.
+    """
     return user_input
 
 
@@ -41,6 +43,9 @@ def get_display_word(mystery_word, letters_to_show):
 
 
 def game_over(mystery_word, letters_guessed, guesses_left):
+    """
+    Prompts loss/game end.
+    """
     return guessed(mystery_word, letters_guessed) or guesses_left == 0
 
 
@@ -52,7 +57,7 @@ if __name__ == "__main__":
     Ask long as the entire word as not been guessed, the game will continue to ask for guesses.
     """
     while not game_over(mystery_word, letters_guessed, guesses_left):
-        print(get_display_word,(mystery_word, letters_guessed))
+        print(get_display_word(mystery_word, letters_guessed))
         letter_guessed = get_letter_input()
         if letter_guessed in letters_guessed:
             print("That letter done been guessed.\n")
@@ -67,6 +72,9 @@ if __name__ == "__main__":
             
     if guessed(mystery_word, letters_guessed):
         print(get_display_word,(mystery_word, letters_guessed))
+        """
+        Game displays win or loss message to user.
+        """
         print("Winner winner!")
     else:
         print(f"The word was {mystery_word.upper()}.\n")
